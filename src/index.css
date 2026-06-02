@@ -399,6 +399,10 @@ body.scrolled .nav {
 .contact h2 a { display: inline-flex; align-items: center; gap: 0.1em; transition: color .3s; }
 .contact h2 a:hover { color: var(--accent); }
 .contact-row { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-top: 50px; border-top: 1px solid var(--line); padding-top: 30px; }
+/* Home CTA only: the row sits directly above the footer rule, so give it symmetric
+   bottom padding so the buttons don't hug that line. Other .contact-row usages
+   (Contact page, 404) are followed by their own spacing and must stay untouched. */
+#cta .contact-row { padding-bottom: 30px; }
 .contact-links { display: flex; gap: 26px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; }
 .contact-links a { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); transition: color .3s; }
 .contact-links a:hover { color: var(--fg); }
