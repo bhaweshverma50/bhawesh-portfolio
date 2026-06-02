@@ -1,0 +1,250 @@
+import type { Project } from '../types';
+
+/* Curated from the résumé + GitHub (github.com/bhaweshverma50).
+   `featured: true` surfaces a project on the home page. Add a `repo`/`demo`
+   URL to show outbound links on the detail page. Order = display order; the
+   "next project" link cycles through this list. */
+
+export const PROJECTS: Record<string, Project> = {
+  'sanas-playground': {
+    slug: 'sanas-playground',
+    name: 'Sanas Playground',
+    tagline: 'Real-time accent transformation on Triton — sub-200ms inference.',
+    category: 'AI Infra',
+    year: '2025',
+    role: 'Backend + infra · Sanas AI',
+    stack: ['Python', 'Triton Inference Server', 'React', 'Kubernetes'],
+    cardTags: ['Triton', 'K8s'],
+    preview: 'Triton inference demo',
+    featured: true,
+    lead: 'A live demo of real-time accent transformation — ultra-low-latency inference at high concurrency on Triton.',
+    body: [
+      'Implemented Triton Inference Server with batch inferencing to showcase model capabilities at sub-200ms latency, handling concurrent high-volume requests for real-time accent-transformation demos.',
+      'Built an end-to-end pipeline integrating LLM APIs for intelligent processing, optimising GPU utilisation through containerised deployment on Kubernetes.',
+    ],
+    features: [
+      'Triton batch inferencing, sub-200ms latency',
+      'Concurrent high-volume request handling',
+      'LLM-integrated processing pipeline',
+      'GPU-optimised containerised deployment',
+    ],
+    metrics: [['<200ms', 'inference latency'], ['real-time', 'accent transform'], ['Triton', 'on K8s']],
+  },
+  validatyr: {
+    slug: 'validatyr',
+    name: 'Validatyr',
+    tagline: 'AI engine that scores and stress-tests app ideas before you build.',
+    category: 'AI Product',
+    year: '2025',
+    role: 'Solo — full-stack + AI',
+    stack: ['Python', 'FastAPI', 'Pydantic', 'Gemini', 'Flutter', 'Supabase'],
+    cardTags: ['Gemini', 'Flutter'],
+    preview: 'App-idea validator',
+    featured: true,
+    repo: 'https://github.com/bhaweshverma50/validatyr',
+    lead: 'Scrapes competitor reviews and runs a multi-agent Gemini pipeline to score new app ideas with a weighted 0–100 Opportunity Score.',
+    body: [
+      'An AI-powered product-validation tool that scrapes competitor app reviews from the Play Store and App Store to score and stress-test new app ideas before execution.',
+      'A multi-agent Gemini pipeline produces structured JSON insights — a weighted 0–100 Opportunity Score across pain severity, market gap, MVP feasibility, competition density and monetisation — plus a Day-1 MVP roadmap, pricing strategy and platform recommendation. It even spawns autonomous agents (PicoClaw) that nightly scaffold the highest-scoring ideas into real POCs.',
+    ],
+    features: [
+      'Multi-agent Gemini pipeline → structured JSON',
+      'Weighted 0–100 Opportunity Score',
+      'Play Store + App Store review scraping',
+      'Voice input via multimodal transcription',
+      'Optional Supabase persistence (mocks when disabled)',
+    ],
+    metrics: [['0–100', 'opportunity score'], ['multi-agent', 'Gemini'], ['2', 'app stores']],
+  },
+  'crawler-ai': {
+    slug: 'crawler-ai',
+    name: 'Crawler AI',
+    tagline: 'Natural-language file search across macOS — fully on-device.',
+    category: 'Native AI',
+    year: '2024 – Now',
+    role: 'Solo — macOS + AI',
+    stack: ['Swift', 'Ollama', 'RAG', 'Neo4j', 'Vector DBs'],
+    cardTags: ['Swift', 'Ollama'],
+    preview: 'Local file-search agent',
+    featured: true,
+    repo: 'https://github.com/bhaweshverma50/storage-ai',
+    lead: 'A native macOS app for natural-language file search across your whole filesystem, powered by local LLMs — nothing leaves the device.',
+    body: [
+      'A native macOS app for intelligent storage management using local LLMs (Ollama) with a RAG architecture for natural-language file search across the entire filesystem, plus graph-based relational mapping in Neo4j for contextual file relationships.',
+      'A multi-modal embedding pipeline processes text, code and images with complete on-device privacy, using semantic search and automated tagging through local AI.',
+    ],
+    features: [
+      'Local LLM (Ollama) RAG over the filesystem',
+      'Neo4j graph of contextual file relationships',
+      'Multi-modal embeddings: text, code, images',
+      '100% on-device — no data leaves the machine',
+    ],
+    metrics: [['100%', 'on-device'], ['Neo4j', 'graph RAG'], ['multi-modal', 'embeddings']],
+  },
+  'universal-rag': {
+    slug: 'universal-rag',
+    name: 'Universal RAG Agent',
+    tagline: 'Plug-and-play LangGraph RAG agent with custom LaTeX math.',
+    category: 'AI Agents',
+    year: '2024',
+    role: 'Solo — full-stack',
+    stack: ['Python', 'LangGraph', 'FastAPI', 'Weaviate', 'React'],
+    cardTags: ['LangGraph', 'RAG'],
+    preview: 'Multi-step RAG agent',
+    featured: false,
+    lead: 'A modular RAG conversational agent on LangGraph with plug-and-play vector DBs and custom LaTeX rendering for math.',
+    body: [
+      'A modular RAG-based conversational agent built on LangGraph for multi-step AI reasoning, with plug-and-play integration across Weaviate, Pinecone and Elasticsearch.',
+      'Custom LaTeX rendering for mathematical queries plus a generalisable agent architecture with semantic search and citation tracking.',
+    ],
+    features: [
+      'LangGraph multi-step reasoning',
+      'Plug-and-play vector DBs (Weaviate / Pinecone / ES)',
+      'Custom LaTeX rendering for math',
+      'Semantic search + citation tracking',
+    ],
+    metrics: [['LangGraph', 'orchestration'], ['3+', 'vector DBs'], ['LaTeX', 'rendering']],
+  },
+  'genai-slackbots': {
+    slug: 'genai-slackbots',
+    name: 'GenAI Slackbots',
+    tagline: 'Imagen avatar generator + RAG IT-support bot that cut tickets 60%.',
+    category: 'GenAI',
+    year: '2025',
+    role: 'Solo',
+    stack: ['Python', 'OpenAI', 'Google Imagen', 'Pinecone', 'LangChain'],
+    cardTags: ['OpenAI', 'Pinecone'],
+    preview: 'Generative Slackbots',
+    featured: false,
+    lead: 'Two production Slackbots: styled avatar generation, and a RAG-backed IT-support assistant that reduced manual tickets by 60%.',
+    body: [
+      'Appreciator generates styled avatars with Google Imagen and GPT-4 message polishing; the InfoSec bot implements a RAG architecture with a Pinecone vector DB and conversational memory for IT-support automation.',
+      'Multi-turn context management with LangChain drove a 60% reduction in manual support tickets through intelligent document processing.',
+    ],
+    features: [
+      'Imagen + GPT-4 avatar generation',
+      'RAG IT-support bot on Pinecone',
+      'Conversational memory (LangChain)',
+      '60% fewer manual support tickets',
+    ],
+    metrics: [['60%', 'fewer tickets'], ['RAG', '+ memory'], ['2', 'Slackbots']],
+  },
+  'any-speak': {
+    slug: 'any-speak',
+    name: 'Any Speak',
+    tagline: 'Offline-first, on-device speech translation for iOS.',
+    category: 'iOS / ML',
+    year: '2025',
+    role: 'Solo — iOS',
+    stack: ['iOS', 'Swift', 'Core ML', 'Whisper'],
+    cardTags: ['Swift', 'Core ML'],
+    preview: 'On-device translation',
+    featured: false,
+    repo: 'https://github.com/bhaweshverma50/any-speak',
+    lead: 'Real-time, on-device speech translation for iOS — no conversation data ever leaves the device.',
+    body: [
+      'Real-time, on-device speech translation for iOS with offline-first privacy — no conversation data leaves the device.',
+      'Streaming speech recognition with Whisper optimised for Apple Silicon via Core ML, dual translation backends (Apple Translate + Sarvam AI), and broad Indian-language support.',
+    ],
+    features: [
+      'On-device Whisper via Core ML',
+      'Offline-first — fully private',
+      'Dual backends: Apple Translate + Sarvam AI',
+      'Broad Indian-language support',
+    ],
+    metrics: [['offline', 'first'], ['Core ML', 'Whisper'], ['Indian', 'languages']],
+  },
+  'beyond-bmi': {
+    slug: 'beyond-bmi',
+    name: 'BeyondBMI',
+    tagline: 'AI 3D health assessment — autonomously scaffolded from a Validatyr report.',
+    category: 'AI Health',
+    year: '2026',
+    role: 'Agent-generated · curated by me',
+    stack: ['Next.js 15', 'TypeScript', 'Tailwind', 'GSAP', 'Supabase'],
+    cardTags: ['Next.js', 'GSAP'],
+    preview: 'AI 3D health POC',
+    featured: false,
+    repo: 'https://github.com/bhaweshverma50/beyond-bmi-poc',
+    demo: 'https://beyond-bmi-poc.vercel.app',
+    lead: 'A 3D morphological health & longevity POC — and an experiment in autonomous shipping: scaffolded overnight by an agent from a 92/100 Validatyr opportunity report.',
+    body: [
+      'BeyondBMI replaces the 19th-century BMI formula with DEXA-comparable 3D scanning and longevity-focused metrics — a 3D scan simulator and a longevity-score calculator built on waist-to-height ratio and muscle distribution.',
+      'It was selected and scaffolded automatically by PicoClaw — an autonomous agent running on a Raspberry Pi Zero 2 W — from a 92/100 opportunity report in the Validatyr ecosystem. A small demonstration that the idea→POC loop can be closed by agents.',
+    ],
+    features: [
+      '3D morphological scan simulator',
+      'Longevity score (WHtR + muscle distribution)',
+      'Autonomously scaffolded by an on-device agent (PicoClaw)',
+      'GSAP-animated brutalist landing page',
+    ],
+    metrics: [['92/100', 'opportunity score'], ['overnight', 'agent-built'], ['Pi Zero', 'the agent host']],
+  },
+  patternflow: {
+    slug: 'patternflow',
+    name: 'PatternFlow AI',
+    tagline: 'Turn AI fashion sketches into production-ready tech packs.',
+    category: 'AI Tooling',
+    year: '2026',
+    role: 'Solo',
+    stack: ['TypeScript', 'Next.js', 'LLM APIs'],
+    cardTags: ['Next.js', 'LLM'],
+    preview: 'Sketch → tech pack',
+    featured: false,
+    repo: 'https://github.com/bhaweshverma50/patternflow-ai',
+    lead: 'Converts AI fashion sketches into production-ready technical patterns and digital tech packs, instantly.',
+    body: [
+      'PatternFlow turns a fashion sketch into a production-ready technical pattern and a digital tech pack — collapsing a slow, manual hand-off between design and manufacturing into a single AI-assisted step.',
+    ],
+    features: [
+      'Sketch → technical pattern conversion',
+      'Auto-generated digital tech packs',
+      'Production-ready output, instantly',
+    ],
+    metrics: [['sketch', '→ tech pack'], ['instant', 'turnaround'], ['AI', 'assisted']],
+  },
+  'synthapp-revamp': {
+    slug: 'synthapp-revamp',
+    name: 'SynthApp Revamp',
+    tagline: 'Dual-mode model inferencing UI with dynamic model fetching.',
+    category: 'AI Tooling',
+    year: '2025',
+    role: 'Full-stack · Sanas AI',
+    stack: ['Python', 'React', 'AWS Lambda', 'GitLab'],
+    cardTags: ['Lambda', 'React'],
+    preview: 'Model inferencing UI',
+    featured: false,
+    lead: 'A UI + backend for model inferencing with dynamic model fetching and dual-mode (Lambda / local) execution.',
+    body: [
+      'Built a UI and backend for model inferencing with dynamic model fetching from S3 / GitLab, implementing dual-mode inferencing — AWS Lambda for C++ and local execution for Python — with OAuth integration.',
+    ],
+    features: [
+      'Dynamic model fetch from S3 / GitLab',
+      'Dual-mode inferencing: Lambda (C++) + local (Python)',
+      'OAuth integration',
+    ],
+    metrics: [['dual-mode', 'inferencing'], ['S3 / GitLab', 'model fetch'], ['OAuth', 'auth']],
+  },
+};
+
+export const PROJECT_ORDER = [
+  'sanas-playground',
+  'validatyr',
+  'crawler-ai',
+  'beyond-bmi',
+  'universal-rag',
+  'genai-slackbots',
+  'any-speak',
+  'patternflow',
+  'synthapp-revamp',
+] as const;
+
+export const orderedProjects = (): Project[] => PROJECT_ORDER.map((slug) => PROJECTS[slug]);
+export const featuredProjects = (): Project[] => orderedProjects().filter((p) => p.featured);
+
+/** Cyclic "next project" pointer derived from PROJECT_ORDER. */
+export const nextProjectSlug = (slug: string): string => {
+  const i = PROJECT_ORDER.indexOf(slug as (typeof PROJECT_ORDER)[number]);
+  if (i === -1) return PROJECT_ORDER[0];
+  return PROJECT_ORDER[(i + 1) % PROJECT_ORDER.length];
+};
