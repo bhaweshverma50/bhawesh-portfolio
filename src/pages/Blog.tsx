@@ -24,9 +24,12 @@ export function Blog() {
                 return (
                   <Link className="post" to={`/post/${p.slug}`} key={p.slug}>
                     <span className="pdate">
-                      {p.date} · {p.tag}
+                      {p.displayDate} · {p.tag}
                     </span>
-                    <span className="ptitle">{p.title}</span>
+                    <span className="ptitle">
+                      {p.title}
+                      {p.summary && <span className="psum">{p.summary}</span>}
+                    </span>
                     <span className="pread">{p.read} →</span>
                   </Link>
                 );

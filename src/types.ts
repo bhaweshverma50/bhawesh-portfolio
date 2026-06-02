@@ -33,13 +33,33 @@ export interface Project {
   demo?: string;
 }
 
+export interface PostLink {
+  label: string;
+  url: string;
+}
+
 export interface Post {
   slug: string;
   title: string;
+  /** ISO date, used for sorting (e.g. "2026-06-02") */
   date: string;
+  /** human label shown in the UI (e.g. "Jun 2026") */
+  displayDate: string;
+  /** reading estimate, e.g. "6 min" */
   read: string;
   tag: string;
-  body: string[];
+  /** optional one-line dek on the listing */
+  summary?: string;
+  /** optional cover image URL (local "/posts/…" or absolute) */
+  cover?: string;
+  /** optional cross-post buttons (LinkedIn, dev.to, …) */
+  links?: PostLink[];
+  /** where this post came from */
+  source: 'local' | 'devto' | 'hashnode' | 'medium';
+  /** canonical URL (used to dedupe cross-posted pieces) */
+  canonical?: string;
+  /** prerendered, sanitized HTML body */
+  html: string;
 }
 
 export interface ExperienceItem {
