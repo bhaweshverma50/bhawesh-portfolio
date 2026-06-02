@@ -5,7 +5,7 @@ export const GENERATED_POSTS: Record<string, Post> = {
   "citations-or-it-didnt-happen": {
     "slug": "citations-or-it-didnt-happen",
     "title": "Citations or it didn't happen: grounding RAG answers",
-    "date": "Tue Jun 02 2026 05:30:00 GMT+0530 (India Standard Time)",
+    "date": "2026-06-02",
     "displayDate": "Jun 2026",
     "read": "1 min",
     "tag": "Systems",

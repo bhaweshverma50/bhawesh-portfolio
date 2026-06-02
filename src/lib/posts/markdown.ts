@@ -24,10 +24,11 @@ export async function createRenderer(): Promise<Renderer> {
       renderer: {
         link(this: { parser: { parseInline: (tokens: Tokens.Generic[]) => string } }, { href, title, tokens }: Tokens.Link) {
           const text = this.parser.parseInline(tokens);
-          const t = title ? ` title="${title}"` : '';
+          const safeHref = href.replace(/"/g, '%22');
+          const t = title ? ` title="${title.replace(/"/g, '&quot;')}"` : '';
           const external = /^https?:\/\//i.test(href);
           const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
-          return `<a href="${href}"${t}${attrs}>${text}</a>`;
+          return `<a href="${safeHref}"${t}${attrs}>${text}</a>`;
         },
       },
     })

@@ -20,6 +20,9 @@ describe('parseLocalPost', () => {
     expect(post).toBeDefined();
     expect(post!.slug).toBe('designing-rag');
     expect(post!.title).toBe('Designing a RAG pipeline');
+    // unquoted YAML `date: 2026-06-02` parses to a Date — must normalize to a
+    // timezone-independent ISO day, NOT a locale-stamped Date string.
+    expect(post!.date).toBe('2026-06-02');
     expect(post!.displayDate).toBe('Jun 2026');
     expect(post!.source).toBe('local');
     expect(post!.cover).toBe('/posts/rag.svg');

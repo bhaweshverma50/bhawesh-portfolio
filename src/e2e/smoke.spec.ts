@@ -78,12 +78,16 @@ test('the Open Source section lists real repos linking to GitHub', async ({ page
   );
 });
 
-test('the Writing section is live with a rich post', async ({ page }) => {
+test('the Writing listing renders posts', async ({ page }) => {
   await page.goto('/#/blog');
-  const posts = page.locator('.writing .post');
-  await expect(posts.first()).toBeVisible();
+  await expect(page.locator('.writing .post').first()).toBeVisible();
+});
 
-  await posts.first().click();
+test('a rich post renders highlighted code, cover, and cross-post links', async ({ page }) => {
+  // Navigate to the known sample slug directly so assertions don't depend on
+  // which post happens to sort first (a coverless/code-less post could break a
+  // "click the first row" approach).
+  await page.goto('/#/post/citations-or-it-didnt-happen');
   await expect(page.locator('.post-title')).toBeVisible();
   await expect(page.locator('.post-body pre.shiki')).toBeVisible();      // highlighted code
   await expect(page.locator('.post-cover img')).toBeVisible();           // cover image
