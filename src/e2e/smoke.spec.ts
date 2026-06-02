@@ -78,6 +78,23 @@ test('the Open Source section lists real repos linking to GitHub', async ({ page
   );
 });
 
+test('the Writing section is live with a rich post', async ({ page }) => {
+  await page.goto('/#/blog');
+  const posts = page.locator('.writing .post');
+  await expect(posts.first()).toBeVisible();
+
+  await posts.first().click();
+  await expect(page.locator('.post-title')).toBeVisible();
+  await expect(page.locator('.post-body pre.shiki')).toBeVisible();      // highlighted code
+  await expect(page.locator('.post-cover img')).toBeVisible();           // cover image
+  await expect(page.locator('.post-links a', { hasText: /linkedin/i })).toHaveAttribute('target', '_blank');
+});
+
+test('the Writing nav link appears once posts exist', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.nav-links a', { hasText: 'Writing' })).toBeVisible();
+});
+
 test('an unknown route shows a 404', async ({ page }) => {
   await page.goto('/#/does-not-exist');
   await expect(page.locator('.page-hero h1')).toHaveText('Page not found');
