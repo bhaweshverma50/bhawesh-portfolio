@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Bhawesh — full-stack engineer portfolio (Vite + React + TypeScript)",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
