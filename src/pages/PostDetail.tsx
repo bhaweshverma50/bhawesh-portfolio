@@ -12,7 +12,7 @@ export function PostDetail() {
     <article className="post-detail" data-screen-label={`Post · ${p.title}`}>
       <div className="wrap narrow">
         <Link className="back" to="/blog">
-          ← All writing
+          {'←︎'} All writing
         </Link>
         <header className="post-head">
           <span className="eyebrow">
@@ -32,13 +32,13 @@ export function PostDetail() {
           <div className="post-links reveal">
             {p.links.map((l) => (
               <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer">
-                {l.label} ↗
+                {l.label} {'↗︎'}
               </a>
             ))}
           </div>
         )}
         <Link className="back big" to="/blog">
-          ← Back to writing
+          {'←︎'} Back to writing
         </Link>
       </div>
     </article>

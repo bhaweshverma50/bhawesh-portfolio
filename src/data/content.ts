@@ -119,13 +119,13 @@ export const PAGES = {
 /** CTA block (home) + Contact page copy */
 export const CTA = {
   eyebrow: "Let's build",
-  titleLines: ['START A', 'PROJECT ↗'],
+  titleLines: ['START A', 'PROJECT ↗︎'],
   footerNote: 'Designed & built with intent',
 };
 
 export const CONTACT = {
   eyebrow: "Let's build",
-  titleLines: ['SAY', 'HELLO ↗'],
+  titleLines: ['SAY', 'HELLO ↗︎'],
   formNum: '(01)',
   formTitle: 'Or drop a line',
   formEyebrow: 'I reply within a day',

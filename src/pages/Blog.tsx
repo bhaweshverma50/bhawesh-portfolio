@@ -30,7 +30,7 @@ export function Blog() {
                       {p.title}
                       {p.summary && <span className="psum">{p.summary}</span>}
                     </span>
-                    <span className="pread">{p.read} →</span>
+                    <span className="pread">{p.read} {'→︎'}</span>
                   </Link>
                 );
               })}

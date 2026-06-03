@@ -1,7 +1,9 @@
 import { useTweaks } from './TweaksContext';
+import { useIsTouch } from '../../hooks/useMediaQuery';
 
 export function TweaksFab() {
   const { toggle } = useTweaks();
+  if (useIsTouch()) return null;
   return (
     <button
       type="button"

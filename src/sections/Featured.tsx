@@ -10,7 +10,7 @@ export function Featured() {
           <span className="sec-num">(02)</span>
           <h2 className="sec-title">Selected Work</h2>
           <Link className="eyebrow" to="/work">
-            All work →
+            All work {'→︎'}
           </Link>
         </div>
         <div className="feat">
@@ -28,7 +28,7 @@ export function Featured() {
                   ))}
                 </span>
               </span>
-              <span className="feat-arrow">↗</span>
+              <span className="feat-arrow">{'↗︎'}</span>
             </Link>
           ))}
         </div>

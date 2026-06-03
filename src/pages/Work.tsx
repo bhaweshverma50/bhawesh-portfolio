@@ -33,7 +33,7 @@ export function Work() {
                       <span className="tag" key={t}>{t}</span>
                     ))}
                   </span>
-                  <span className="pc-arrow">↗</span>
+                  <span className="pc-arrow">{'↗︎'}</span>
                 </span>
               </Link>
             ))}
@@ -92,7 +92,7 @@ export function Work() {
             <span className="sec-num">(04)</span>
             <h2 className="sec-title">Open Source</h2>
             <a className="eyebrow" href={`https://github.com/${GITHUB_USER}`} target="_blank" rel="noopener noreferrer">
-              Building in public ↗
+              Building in public {'↗︎'}
             </a>
           </div>
           <ContributionGraph user={GITHUB_USER} />

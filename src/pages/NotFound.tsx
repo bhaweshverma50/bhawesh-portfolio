@@ -14,7 +14,7 @@ export function NotFound({ label = 'Page not found' }: { label?: string }) {
         <div className="contact-row" style={{ borderTop: 'none', marginTop: 30, paddingTop: 0 }}>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link className="btn solid" to="/">
-              <span>← Back home</span>
+              <span>{'←︎'} Back home</span>
             </Link>
             <Link className="btn" to="/work">
               <span>See the work</span>

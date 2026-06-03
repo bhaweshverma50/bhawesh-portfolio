@@ -38,7 +38,7 @@ export function ContactForm() {
       </div>
       <div className="fld full" style={{ padding: 20 }}>
         <button className="btn solid" type="submit">
-          <span>Send message →</span>
+          <span>Send message {'→︎'}</span>
         </button>
         <p className="cform-status" role="status" aria-live="polite">{status}</p>
       </div>

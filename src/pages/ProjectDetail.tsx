@@ -14,7 +14,7 @@ export function ProjectDetail() {
     <article className="detail" data-screen-label={`Project · ${p.name}`}>
       <div className="wrap">
         <Link className="back" to="/work">
-          ← All work
+          {'←︎'} All work
         </Link>
         <header className="detail-head">
           <span className="eyebrow">Project · {p.year}</span>
@@ -25,12 +25,12 @@ export function ProjectDetail() {
             <div className="reveal reveal-d1" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 26 }}>
               {p.demo && (
                 <a className="btn solid" href={p.demo} target="_blank" rel="noopener noreferrer">
-                  <span>Live demo ↗</span>
+                  <span>Live demo {'↗︎'}</span>
                 </a>
               )}
               {p.repo && (
                 <a className="btn" href={p.repo} target="_blank" rel="noopener noreferrer">
-                  <span>View source ↗</span>
+                  <span>View source {'↗︎'}</span>
                 </a>
               )}
             </div>
@@ -84,7 +84,7 @@ export function ProjectDetail() {
         {nx && (
           <Link className="next-proj" to={`/project/${nx.slug}`}>
             <span className="np-k">Next project</span>
-            <span className="np-name">{nx.name} →</span>
+            <span className="np-name">{nx.name} {'→︎'}</span>
           </Link>
         )}
       </div>

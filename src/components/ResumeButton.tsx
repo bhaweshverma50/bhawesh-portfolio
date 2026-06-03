@@ -40,7 +40,7 @@ export function ResumeButton() {
   };
   return (
     <button className="btn js-resume" type="button" onClick={onClick}>
-      <span>Download Résumé ↓</span>
+      <span>Download Résumé {'↓︎'}</span>
     </button>
   );
 }

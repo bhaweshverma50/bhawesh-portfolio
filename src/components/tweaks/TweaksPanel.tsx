@@ -1,4 +1,5 @@
 import { useTweaks } from './TweaksContext';
+import { useIsTouch } from '../../hooks/useMediaQuery';
 import { TweakRadio, TweakSection, TweakSelect, TweakToggle, type SelectOption } from './controls';
 import type { ClickFx, CursorStyle, HeroMode, Holo, TextFx, TransitionStyle, TransSpeed } from '../../types';
 
@@ -42,7 +43,8 @@ const TRANSITIONS: SelectOption[] = [
 
 export function TweaksPanel() {
   const { tweaks, setTweak, reset, open, setOpen } = useTweaks();
-  if (!open) return null;
+  const isTouch = useIsTouch();
+  if (!open || isTouch) return null;
 
   return (
     <div className="twk-panel" role="dialog" aria-label="Tweaks">
