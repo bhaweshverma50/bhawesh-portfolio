@@ -40,8 +40,8 @@ npm run dev        # local dev server (http://localhost:5173) with HMR
 Edit text/data in those files and the UI updates — no component changes needed.
 The **Download Résumé** button serves `public/Bhawesh-Verma-Resume.pdf` (swap the file or change `SITE.resumeUrl`).
 
-When deploying, update the absolute URLs (`canonical`, Open Graph, JSON-LD) in
-`index.html` from `https://bhawesh.dev` to your real domain.
+The absolute URLs (`canonical`, Open Graph, JSON-LD) in `index.html` point at the
+live deploy (`https://bhaweshv.vercel.app`). Update them if you add a custom domain.
 
 ## Project structure
 
