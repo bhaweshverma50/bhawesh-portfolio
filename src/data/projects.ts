@@ -42,6 +42,29 @@ export const PROJECTS: Record<string, Project> = {
     preview: 'App-idea validator',
     featured: true,
     repo: 'https://github.com/bhaweshverma50/validatyr',
+    writeup: '/post/anatomy-of-a-verdict',
+    thumb: '/projects/validatyr/validation-flow.gif',
+    hero: {
+      src: '/projects/validatyr/flow.png',
+      alt: 'Validatyr validation flow: idea input, live 5-agent pipeline, and an 80/100 Opportunity Score',
+    },
+    gallery: [
+      {
+        src: '/projects/validatyr/validation-flow.gif',
+        alt: 'Typing an app idea, watching agents stream progress, and receiving the scored verdict',
+        caption: 'Describe → agents stream over SSE → 0–100 verdict in about a minute.',
+      },
+      {
+        src: '/projects/validatyr/report.png',
+        alt: 'What Users Hate and What Users Love cards, each point cited to App Store reviews or Reddit',
+        caption: 'Grounded, not vibes — every insight cites scraped competitor reviews or community posts.',
+      },
+      {
+        src: '/projects/validatyr/organize.png',
+        alt: 'Validation history with rerun, notification center, and the neo-brutalist home screen',
+        caption: 'Jobs persist server-side and push a notification on completion — even if the app was closed.',
+      },
+    ],
     lead: 'Scrapes competitor reviews and runs a multi-agent Gemini pipeline to score new app ideas with a weighted 0–100 Opportunity Score.',
     body: [
       'An AI-powered product-validation tool that scrapes competitor app reviews from the Play Store and App Store to score and stress-test new app ideas before execution.',
