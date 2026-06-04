@@ -23,7 +23,7 @@ export function Work() {
         <div className="wrap">
           <div className="proj-grid">
             {projects.map((p, i) => (
-              <Link className="proj-card" to={`/project/${p.slug}`} data-preview={p.preview} {...(p.thumb ? { 'data-preview-img': p.thumb } : {})} key={p.slug}>
+              <Link className="proj-card" to={`/project/${p.slug}`} data-preview={p.preview} {...(p.thumb ? { 'data-preview-img': p.thumb } : {})} {...(p.thumbAspect ? { 'data-preview-aspect': p.thumbAspect } : {})} key={p.slug}>
                 <span className="pc-num">{`${String(i + 1).padStart(2, '0')} / ${p.category}`}</span>
                 <span className="pc-name">{p.name}</span>
                 <span className="pc-tag">{p.tagline}</span>

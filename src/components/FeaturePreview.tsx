@@ -24,6 +24,9 @@ export function FeaturePreview() {
       const t = (e.target as Element)?.closest?.('[data-preview]') as HTMLElement | null;
       if (t) {
         shown = true; box.classList.add('show'); label.textContent = t.dataset.preview || 'project';
+        // Orientation-aware box: portrait thumbs (mobile apps) get a phone-shaped
+        // preview instead of being cover-cropped into the landscape default.
+        box.classList.toggle('portrait', t.dataset.previewAspect === 'portrait');
         const src = t.dataset.previewImg;
         if (src) { box.classList.add('has-img'); if (img.src !== src) img.src = src; }
         else { box.classList.remove('has-img'); img.removeAttribute('src'); }

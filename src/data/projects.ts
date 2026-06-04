@@ -44,6 +44,7 @@ export const PROJECTS: Record<string, Project> = {
     repo: 'https://github.com/bhaweshverma50/validatyr',
     writeup: '/post/anatomy-of-a-verdict',
     thumb: '/projects/validatyr/validation-flow.gif',
+    thumbAspect: 'portrait',
     hero: {
       src: '/projects/validatyr/flow.png',
       alt: 'Validatyr validation flow: idea input, live 5-agent pipeline, and an 80/100 Opportunity Score',

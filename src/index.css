@@ -325,6 +325,7 @@ body.scrolled .nav {
 /* hover image preview that follows cursor */
 .feat-preview { position: fixed; z-index: 500; width: 320px; height: 220px; border-radius: 6px; overflow: hidden; pointer-events: none; opacity: 0; transform: translate(-50%, -50%) scale(0.85); transition: opacity .3s var(--ease), transform .3s var(--ease); border: 1px solid var(--line); }
 .feat-preview.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.feat-preview.portrait { width: 200px; height: 420px; }
 .feat-preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
 .feat-preview.has-img img { display: block; }
 .feat-preview.has-img .ph {

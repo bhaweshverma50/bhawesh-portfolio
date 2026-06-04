@@ -43,6 +43,8 @@ export interface Project {
   writeup?: string;
   /** cursor-follow hover thumbnail (may be an animated gif) */
   thumb?: string;
+  /** thumbnail orientation — 'portrait' renders a phone-shaped hover preview (default landscape) */
+  thumbAspect?: 'landscape' | 'portrait';
   /** detail-page hero media; falls back to a striped placeholder when absent */
   hero?: ProjectMedia;
   /** detail-page gallery; replaces the placeholder shots when present */
