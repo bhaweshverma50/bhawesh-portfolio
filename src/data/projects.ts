@@ -69,6 +69,7 @@ export const PROJECTS: Record<string, Project> = {
     featured: true,
     repo: 'https://github.com/bhaweshverma50/spacelens',
     demo: 'https://github.com/bhaweshverma50/spacelens/releases/latest',
+    writeup: '/post/mapping-a-million-files',
     thumb: '/projects/spacelens/explorer-drilldown.gif',
     hero: {
       src: '/projects/spacelens/explorer.png',

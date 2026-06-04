@@ -30,7 +30,7 @@ export function ProjectDetail() {
           <h1 className="detail-title reveal">{p.name}</h1>
           <TitleUnderline />
           <p className="detail-tag reveal reveal-d1">{p.tagline}</p>
-          {(p.demo || p.repo) && (
+          {(p.demo || p.repo || p.writeup) && (
             <div className="reveal reveal-d1" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 26 }}>
               {p.demo && (
                 <a className="btn solid" href={p.demo} target="_blank" rel="noopener noreferrer">
@@ -41,6 +41,11 @@ export function ProjectDetail() {
                 <a className="btn" href={p.repo} target="_blank" rel="noopener noreferrer">
                   <span>View source {'↗︎'}</span>
                 </a>
+              )}
+              {p.writeup && (
+                <Link className="btn" to={p.writeup}>
+                  <span>Read the write-up {'→︎'}</span>
+                </Link>
               )}
             </div>
           )}

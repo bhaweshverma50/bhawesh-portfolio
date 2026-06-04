@@ -39,6 +39,8 @@ export interface Project {
   /** optional outbound links (rendered on the detail page when present) */
   repo?: string;
   demo?: string;
+  /** internal route to a related write-up (e.g. "/post/my-article") */
+  writeup?: string;
   /** cursor-follow hover thumbnail (may be an animated gif) */
   thumb?: string;
   /** detail-page hero media; falls back to a striped placeholder when absent */

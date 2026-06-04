@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" role="img" aria-label="retrieve to bind to verify">
-  <rect width="1000" height="240" fill="#141417"/>
-  <g font-family="monospace" font-size="22" fill="#e8e6e1" text-anchor="middle">
-    <rect x="60"  y="90" width="220" height="60" rx="10" fill="none" stroke="#7c6cff"/><text x="170" y="128">retrieve</text>
-    <rect x="390" y="90" width="220" height="60" rx="10" fill="none" stroke="#7c6cff"/><text x="500" y="128">bind</text>
-    <rect x="720" y="90" width="220" height="60" rx="10" fill="none" stroke="#7c6cff"/><text x="830" y="128">verify</text>
-    <text x="335" y="128" fill="#6a6a72">→</text><text x="665" y="128" fill="#6a6a72">→</text>
-  </g>
-</svg>
