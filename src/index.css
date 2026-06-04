@@ -440,14 +440,20 @@ body.scrolled .nav {
 .footer { padding: 40px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--faint); letter-spacing: 0.04em; }
 
 /* ---------- Section index (right rail) ---------- */
-.rail { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 800; display: flex; flex-direction: column; gap: 4px; mix-blend-mode: difference; }
+/* Safari-safe rail: no mix-blend-mode (stale blended-layer caching on fixed elements),
+   and the line GROWS via transform: scaleX — not width — because Safari fails to
+   repaint the pixels a shrinking ::before vacates on a fixed layer, leaving green
+   ghosts on previously-active lines. Transforms keep painted bounds constant and are
+   composited correctly in every engine. */
+.rail { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 800; display: flex; flex-direction: column; gap: 4px; }
 .rail a { display: flex; align-items: center; justify-content: flex-end; width: 52px; height: 22px; cursor: pointer; }
 .rail a::before {
-  content: ''; width: 28px; height: 1.5px; background: var(--fg); opacity: 0.38;
-  transition: width .4s var(--ease), opacity .3s, background .3s;
+  content: ''; width: 46px; height: 2px; border-radius: 1px; background: var(--fg); opacity: 0.32;
+  transform: scaleX(0.61); transform-origin: right center;
+  transition: transform .4s var(--ease), opacity .3s, background .3s;
 }
-.rail a:hover::before { width: 46px; opacity: 0.8; }
-.rail a.active::before { opacity: 1; width: 46px; background: var(--accent); }
+.rail a:hover::before { transform: scaleX(1); opacity: 0.8; }
+.rail a.active::before { transform: scaleX(1); opacity: 1; background: var(--accent); }
 @media (max-width: 1200px) { .rail { display: none; } }
 
 /* progress bar */
