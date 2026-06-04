@@ -15,7 +15,7 @@ export function Featured() {
         </div>
         <div className="feat">
           {items.map((p, i) => (
-            <Link className="feat-item" to={`/project/${p.slug}`} data-preview={p.preview} key={p.slug}>
+            <Link className="feat-item" to={`/project/${p.slug}`} data-preview={p.preview} {...(p.thumb ? { 'data-preview-img': p.thumb } : {})} key={p.slug}>
               <span className="fnum">{String(i + 1).padStart(2, '0')}</span>
               <span className="feat-name">{p.name}</span>
               <span className="feat-meta">

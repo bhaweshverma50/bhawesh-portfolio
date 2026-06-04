@@ -8,6 +8,14 @@ export interface Theme {
   bg3: string;
 }
 
+export interface ProjectMedia {
+  src: string;
+  alt: string;
+  caption?: string;
+  /** 'image' covers png/jpg/gif (default); 'video' renders a muted looping <video> */
+  type?: 'image' | 'video';
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -31,6 +39,12 @@ export interface Project {
   /** optional outbound links (rendered on the detail page when present) */
   repo?: string;
   demo?: string;
+  /** cursor-follow hover thumbnail (may be an animated gif) */
+  thumb?: string;
+  /** detail-page hero media; falls back to a striped placeholder when absent */
+  hero?: ProjectMedia;
+  /** detail-page gallery; replaces the placeholder shots when present */
+  gallery?: ProjectMedia[];
 }
 
 export interface PostLink {
