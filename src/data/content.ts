@@ -8,15 +8,15 @@ import type { EducationItem, ExperienceItem, Fact, HeadlineLine, MarqueeItem, Sk
 export const HERO = {
   metaRole: 'Senior Software Engineer',
   metaLine:
-    'Distributed systems · event-driven pipelines · RAG. 4+ years shipping production backends.',
-  status: 'Senior SWE @ Sanas AI · Bangalore, IN',
+    'Distributed systems, event-driven pipelines, and RAG. 4+ years shipping production backends.',
+  status: 'Senior SWE @ Sanas AI, Bangalore, IN',
   headline: [
     { text: 'Bhawesh' },
     { text: 'builds', outline: true },
     { text: 'AI systems', rotate: ['pipelines', 'native apps', 'voice tech'] },
   ] as HeadlineLine[],
   sub:
-    'Senior software engineer specialising in distributed systems, AI orchestration, and RAG — building production-grade backends in Python & TypeScript that process millions of events daily.',
+    'Senior software engineer specialising in distributed systems, AI orchestration, and RAG. I build production-grade backends in Python & TypeScript that process millions of events daily.',
   scrollCue: 'Scroll to explore',
 };
 
@@ -26,10 +26,10 @@ export const ABOUT = {
   title: 'About',
   eyebrow: 'Who I am',
   lead:
-    "I'm Bhawesh — a senior software engineer who lives at the seam between raw data engineering and frontier AI model training. I like owning systems end-to-end in fast-paced environments, from the orchestration layer down to the infra.",
+    "I'm Bhawesh, a senior software engineer who lives at the seam between raw data engineering and frontier AI model training. I like owning systems end-to-end in fast-paced environments, from the orchestration layer down to the infra.",
   body: [
-    'Over <b>4+ years</b> I’ve built production-grade backends in <b>Python &amp; TypeScript</b> that process millions of events daily — Kafka-backed pipelines, Kubernetes-based high-throughput ingestion, agentic workflows, and RAG wired into real products.',
-    'I’m at my best taking an ambiguous problem to a <b>sharp, shipped POC</b>: architecting the system, integrating LLMs and vector stores, and tuning the inference path until it’s fast enough to feel instant.',
+    'Over <b>4+ years</b> I’ve built production-grade backends in <b>Python &amp; TypeScript</b> that process millions of events daily: Kafka-backed pipelines, Kubernetes-based high-throughput ingestion, agentic workflows, and RAG wired into real products.',
+    'I’m at my best taking an ambiguous problem to a <b>sharp, shipped POC</b>. That means architecting the system, integrating LLMs and vector stores, and tuning the inference path until it’s fast enough to feel instant.',
   ],
 };
 
@@ -63,14 +63,14 @@ export const EXPERIENCE: ExperienceItem[] = [
     role: 'Senior Software Engineer',
     co: 'Sanas AI',
     desc: 'Build Kafka, RabbitMQ, and Celery pipelines moving millions of events a day, plus a Kubernetes recording microservice for continuous audio ingestion. Shipped a Chrome extension replicating the desktop app in-browser: virtual-microphone injection, voice-gateway routing, OAuth licensing, and ClickHouse-backed observability. Own metrics dashboards, SLOs, and feature-flagged rollouts.',
-    place: 'Bangalore, India — Hybrid',
+    place: 'Bangalore, India (Hybrid)',
   },
   {
     when: 'Jan 2024 — Feb 2025',
     role: 'Software Engineer',
     co: 'Terawe Corporation',
     desc: 'Engineered a modular multi-modal pre-processor (ffmpeg transcoding, frame extraction, OCR) vectorizing tens of thousands of documents into VectorDBs for large-scale RAG, and shipped conversational-agent platforms for ITER & NYPD with high-accuracy citation integrity.',
-    place: 'Bangalore, India — Hybrid',
+    place: 'Bangalore, India (Hybrid)',
   },
   {
     when: 'Nov 2021 — Nov 2023',
@@ -97,23 +97,23 @@ export const EDUCATION: EducationItem[] = [
 ];
 
 export const AWARDS: string[] = [
-  'Quarterly Team Award — Terawe (2024)',
-  '3× Performance Awards — USEReady',
+  'Quarterly Team Award, Terawe (2024)',
+  '3× Performance Awards (USEReady)',
 ];
 
 /** Standalone page intros */
 export const PAGES = {
   work: {
-    eyebrow: 'Selected work · 2021—2026',
+    eyebrow: 'Selected work, 2021—2026',
     title: 'Work',
     lead:
-      "Systems I've architected and shipped end-to-end — production AI infra, agentic products, and native apps. A few are open-source; others shipped inside fast-moving teams.",
+      "Systems I've architected and shipped end-to-end: production AI infra, agentic products, and native apps. A few are open-source; others shipped inside fast-moving teams.",
   },
   blog: {
     eyebrow: 'Notes & essays',
     title: 'Writing',
     lead: '<b>Thinking out loud about craft, systems, and shipping AI.</b> Mostly the stuff I wish someone had told me earlier.',
-    empty: 'Essays are on the way — check back soon.',
+    empty: 'Essays are on the way. Check back soon.',
   },
 };
 

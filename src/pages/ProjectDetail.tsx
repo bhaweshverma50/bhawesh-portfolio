@@ -20,13 +20,13 @@ export function ProjectDetail() {
   const nx = PROJECTS[nextProjectSlug(p.slug)];
 
   return (
-    <article className="detail" data-screen-label={`Project · ${p.name}`}>
+    <article className="detail" data-screen-label={`Project: ${p.name}`}>
       <div className="wrap">
         <Link className="back" to="/work">
           {'←︎'} All work
         </Link>
         <header className="detail-head">
-          <span className="eyebrow">Project · {p.year}</span>
+          <span className="eyebrow">Project, {p.year}</span>
           <h1 className="detail-title reveal">{p.name}</h1>
           <TitleUnderline />
           <p className="detail-tag reveal reveal-d1">{p.tagline}</p>
@@ -68,7 +68,7 @@ export function ProjectDetail() {
           {p.hero ? (
             <Media media={p.hero} />
           ) : (
-            <Placeholder label={`${p.tagline} — hero shot`} alt={`${p.name}: ${p.tagline}`} />
+            <Placeholder label={`${p.tagline} (hero shot)`} alt={`${p.name}: ${p.tagline}`} />
           )}
         </div>
         <p className="detail-lead reveal">{p.lead}</p>

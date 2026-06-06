@@ -24,7 +24,7 @@ export function Blog() {
                 return (
                   <Link className="post" to={`/post/${p.slug}`} key={p.slug}>
                     <span className="pdate">
-                      {p.displayDate} · {p.tag}
+                      {p.displayDate} / {p.tag}
                     </span>
                     <span className="ptitle">
                       {p.title}

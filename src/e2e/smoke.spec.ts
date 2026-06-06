@@ -22,14 +22,14 @@ test('home renders with the right title and no console errors', async ({ page })
 test('routes update the document title', async ({ page }) => {
   await page.goto('/#/work');
   await expect(page.locator('.page-hero h1')).toHaveText('Work');
-  await expect(page).toHaveTitle(`Work — ${SITE.firstName}`);
+  await expect(page).toHaveTitle(`Work | ${SITE.firstName}`);
 
   await page.goto('/#/contact');
-  await expect(page).toHaveTitle(`Contact — ${SITE.firstName}`);
+  await expect(page).toHaveTitle(`Contact | ${SITE.firstName}`);
 
   await page.goto('/#/project/validatyr');
   await expect(page.locator('.detail-title')).toHaveText('Validatyr');
-  await expect(page).toHaveTitle(`Validatyr — ${SITE.firstName}`);
+  await expect(page).toHaveTitle(`Validatyr | ${SITE.firstName}`);
 });
 
 test('the Tweaks panel opens from the dial', async ({ page }) => {
@@ -45,7 +45,7 @@ test('contact email links use the configured mailto and the form gives feedback'
   const sayHello = page.locator('.contact h2 a').first();
   await expect(sayHello).toHaveAttribute('href', `mailto:${SITE.email}`);
 
-  await page.locator('#cf-message').fill('Loved the work — want to collaborate.');
+  await page.locator('#cf-message').fill('Loved the work, want to collaborate.');
   await page.getByRole('button', { name: /send message/i }).click();
   await expect(page.locator('.cform-status')).toContainText(/opening your email app/i);
 });

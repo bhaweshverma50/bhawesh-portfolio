@@ -128,7 +128,7 @@ export function Work() {
                   <span className="tl-role">{e.degree}</span>
                   <div className="tl-co">
                     {e.school}
-                    {e.note ? ` · ${e.note}` : ''}
+                    {e.note ? `, ${e.note}` : ''}
                   </div>
                 </span>
                 <span className="tl-place" />

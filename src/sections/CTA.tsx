@@ -42,7 +42,7 @@ export function CTA() {
           {CTA_COPY.footerNote}
           {!isTouch && (
             <>
-              {' '}· Hit the{' '}
+              {' '}/ Hit the{' '}
               <button type="button" className="footer-tweaks" onClick={toggle}>
                 Tweaks
               </button>{' '}

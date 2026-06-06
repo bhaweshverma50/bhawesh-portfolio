@@ -7,7 +7,7 @@ export function Footer({ children }: { children?: ReactNode }) {
   return (
     <div className="footer">
       <span>
-        © {SITE.year} {SITE.name} — {SITE.role}
+        © {SITE.year} {SITE.name} | {SITE.role}
       </span>
       <span>{children ?? 'Designed & built with intent'}</span>
       <span>{clock}</span>

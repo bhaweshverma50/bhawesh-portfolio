@@ -39,11 +39,11 @@ function applyTheme(key: RouteKey) {
 function setDocTitle(key: RouteKey, slug?: string) {
   const b = SITE.firstName;
   let title: string = SITE.title;
-  if (key === 'project') title = (slug && PROJECTS[slug] ? PROJECTS[slug].name : 'Project') + ` — ${b}`;
-  else if (key === 'post') title = (slug && POSTS[slug] ? POSTS[slug].title : 'Writing') + ` — ${b}`;
-  else if (key === 'work') title = `Work — ${b}`;
-  else if (key === 'blog') title = `Writing — ${b}`;
-  else if (key === 'contact') title = `Contact — ${b}`;
+  if (key === 'project') title = (slug && PROJECTS[slug] ? PROJECTS[slug].name : 'Project') + ` | ${b}`;
+  else if (key === 'post') title = (slug && POSTS[slug] ? POSTS[slug].title : 'Writing') + ` | ${b}`;
+  else if (key === 'work') title = `Work | ${b}`;
+  else if (key === 'blog') title = `Writing | ${b}`;
+  else if (key === 'contact') title = `Contact | ${b}`;
   document.title = title;
 }
 

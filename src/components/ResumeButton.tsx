@@ -1,22 +1,17 @@
 import { SITE } from '../config/site';
 
-const RESUME_TEXT = `BHAWESH — Full-Stack Software Engineer
+const RESUME_TEXT = `BHAWESH VERMA | Senior Software Engineer
+Bangalore, India | bhaweshverma50@gmail.com | bhaweshv.vercel.app
 
-4 years of experience. Creative full-stack engineer with a strong UI/UX sense and a focus on feature & POC analysis and development.
+Senior Software Engineer at Sanas AI (Feb 2025 to now): Kafka/RabbitMQ pipelines at millions of events daily, Kubernetes audio ingestion, Chrome extension voice platform, ClickHouse observability.
 
-STACK
-Frontend: React, Next.js, TypeScript, Motion/GSAP, WebGL
-Backend: Node.js, Go, PostgreSQL, Redis, tRPC
-Craft: UI/UX, Prototyping, POC analysis, Docker/CI, AWS
+Software Engineer at Terawe (2024 to 2025): multi-modal RAG pipelines (ffmpeg, OCR), conversational agents for ITER and NYPD.
 
-SELECTED WORK
-• Synthwave — realtime collaborative editor (CRDT, WebSockets)
-• Cortex — self-hostable AI knowledge base (pgvector, LLM)
-• Pulse — engineering metrics dashboard (Go, TimescaleDB)
-• Flux Field — WebGL generative-art playground
+Software Engineer at USEReady (2021 to 2023): B2B analytics product POC to production, internal automation.
 
-CONTACT
-${SITE.email}
+Projects: SpaceLens (macOS disk analyzer, local AI), Perch (Dynamic Island for the MacBook notch), Validatyr (multi-agent app-idea validation), Crochet by Shivani (live e-commerce, Razorpay).
+
+B.Tech Computer Science, SVIST, 2017 to 2021.
 `;
 
 /** Downloads a real résumé file when SITE.resumeUrl is set, else a text fallback. */

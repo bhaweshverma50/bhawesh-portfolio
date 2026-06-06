@@ -9,18 +9,18 @@ export function PostDetail() {
   if (!p) return <NotFound label="Post not found" />;
 
   return (
-    <article className="post-detail" data-screen-label={`Post · ${p.title}`}>
+    <article className="post-detail" data-screen-label={`Post: ${p.title}`}>
       <div className="wrap narrow">
         <Link className="back" to="/blog">
           {'←︎'} All writing
         </Link>
         <header className="post-head">
           <span className="eyebrow">
-            {p.tag} · {p.read} read
+            {p.tag} / {p.read} read
           </span>
           <h1 className="post-title reveal">{p.title}</h1>
           <TitleUnderline />
-          <div className="post-byline reveal reveal-d1">Bhawesh · {p.displayDate}</div>
+          <div className="post-byline reveal reveal-d1">Bhawesh, {p.displayDate}</div>
         </header>
         {p.cover && (
           <div className="post-cover reveal reveal-d1">

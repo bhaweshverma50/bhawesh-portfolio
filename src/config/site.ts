@@ -10,7 +10,7 @@ export const SITE = {
   firstName: 'Bhawesh',
   role: 'Senior Software Engineer',
   /** browser tab / share title for the home page */
-  title: 'Bhawesh Verma — Senior Software Engineer',
+  title: 'Bhawesh Verma | Senior Software Engineer',
   email: 'bhaweshverma50@gmail.com',
   phone: '+91 70045 89471', // stored for reference; not rendered by default
   location: 'Bangalore, India',
