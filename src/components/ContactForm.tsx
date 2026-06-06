@@ -1,13 +1,18 @@
 import { useState, type FormEvent } from 'react';
 import { SITE } from '../config/site';
 
-/** Composes an email via mailto: (no backend needed) and gives clear feedback. */
+type Phase = 'idle' | 'sending' | 'sent' | 'fallback';
+
+/** Sends via /api/contact (Resend). If the API is missing or down, falls back
+    to composing a mailto: draft so the message is never silently lost. */
 export function ContactForm() {
+  const [phase, setPhase] = useState<Phase>('idle');
   const [status, setStatus] = useState('');
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const name = (fd.get('name') as string)?.trim() ?? '';
     const email = (fd.get('email') as string)?.trim() ?? '';
     const msg = (fd.get('message') as string)?.trim() ?? '';
@@ -15,11 +20,28 @@ export function ContactForm() {
       setStatus('Add a short message first, then hit send.');
       return;
     }
-    const subject = encodeURIComponent('Portfolio enquiry' + (name ? ' from ' + name : ''));
-    const sig = [name && '— ' + name, email].filter(Boolean).join(' · ');
-    const body = encodeURIComponent(msg + (sig ? '\n\n' + sig : ''));
-    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
-    setStatus(`Opening your email app… if nothing happens, write me directly at ${SITE.email}.`);
+
+    setPhase('sending');
+    setStatus('Sending…');
+    try {
+      const r = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message: msg }),
+      });
+      if (!r.ok) throw new Error(`api ${r.status}`);
+      form.reset();
+      setPhase('sent');
+      setStatus("Message sent. I'll get back to you soon!");
+    } catch {
+      // API unavailable: open a pre-filled draft in the visitor's mail app instead.
+      const subject = encodeURIComponent('Portfolio enquiry' + (name ? ' from ' + name : ''));
+      const sig = [name, email].filter(Boolean).join(' | ');
+      const body = encodeURIComponent(msg + (sig ? '\n\n' + sig : ''));
+      window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+      setPhase('fallback');
+      setStatus(`Opening your email app… if nothing happens, write me directly at ${SITE.email}.`);
+    }
   };
 
   return (
@@ -37,8 +59,8 @@ export function ContactForm() {
         <textarea id="cf-message" name="message" placeholder="What are you building?" />
       </div>
       <div className="fld full" style={{ padding: 20 }}>
-        <button className="btn solid" type="submit">
-          <span>Send message {'→︎'}</span>
+        <button className="btn solid" type="submit" disabled={phase === 'sending'}>
+          <span>{phase === 'sending' ? 'Sending…' : 'Send message →︎'}</span>
         </button>
         <p className="cform-status" role="status" aria-live="polite">{status}</p>
       </div>
