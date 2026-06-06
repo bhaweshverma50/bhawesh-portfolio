@@ -8,7 +8,7 @@ import type { EducationItem, ExperienceItem, Fact, HeadlineLine, MarqueeItem, Sk
 export const HERO = {
   metaRole: 'Senior Software Engineer',
   metaLine:
-    'Distributed systems · high-throughput AI orchestration · RAG. 4+ years shipping production backends.',
+    'Distributed systems · event-driven pipelines · RAG. 4+ years shipping production backends.',
   status: 'Senior SWE @ Sanas AI · Bangalore, IN',
   headline: [
     { text: 'Bhawesh' },
@@ -16,7 +16,7 @@ export const HERO = {
     { text: 'systems' },
   ] as HeadlineLine[],
   sub:
-    'Senior software engineer specialising in distributed systems, AI orchestration, and RAG — building production-grade backends in Python & TypeScript that handle millions of tasks.',
+    'Senior software engineer specialising in distributed systems, AI orchestration, and RAG — building production-grade backends in Python & TypeScript that process millions of events daily.',
   scrollCue: 'Scroll to explore',
 };
 
@@ -28,7 +28,7 @@ export const ABOUT = {
   lead:
     "I'm Bhawesh — a senior software engineer who lives at the seam between raw data engineering and frontier AI model training. I like owning systems end-to-end in fast-paced environments, from the orchestration layer down to the infra.",
   body: [
-    'Over <b>4+ years</b> I’ve built production-grade backends in <b>Python &amp; TypeScript</b> that handle millions of tasks — Kubernetes-based high-throughput ingestion, agentic workflows, and RAG pipelines wired into real products.',
+    'Over <b>4+ years</b> I’ve built production-grade backends in <b>Python &amp; TypeScript</b> that process millions of events daily — Kafka-backed pipelines, Kubernetes-based high-throughput ingestion, agentic workflows, and RAG wired into real products.',
     'I’m at my best taking an ambiguous problem to a <b>sharp, shipped POC</b>: architecting the system, integrating LLMs and vector stores, and tuning the inference path until it’s fast enough to feel instant.',
   ],
 };
@@ -47,8 +47,9 @@ export const MARQUEE: MarqueeItem[] = [
   { label: 'React' },
   { label: 'RAG', hot: true },
   { label: 'LangGraph' },
-  { label: 'Kubernetes', hot: true },
-  { label: 'Triton' },
+  { label: 'Kafka', hot: true },
+  { label: 'Kubernetes' },
+  { label: 'Triton', hot: true },
   { label: 'PostgreSQL', hot: true },
   { label: 'Vector DBs' },
   { label: 'AWS' },
@@ -61,15 +62,15 @@ export const EXPERIENCE: ExperienceItem[] = [
     when: 'Feb 2025 — Now',
     role: 'Senior Software Engineer',
     co: 'Sanas AI',
-    desc: 'Architected Kubernetes-based high-throughput audio ingestion and an agentic, real-time-diarized sales-enablement platform. Own S3 data pipelines and a high-performance FastAPI / Socket.io job platform, plus a centralized training-orchestration hub.',
-    place: 'Remote — India',
+    desc: 'Build Kafka, RabbitMQ, and Celery pipelines moving millions of events a day, plus a Kubernetes recording microservice for continuous audio ingestion. Shipped a Chrome extension replicating the desktop app in-browser: virtual-microphone injection, voice-gateway routing, OAuth licensing, and ClickHouse-backed observability. Own metrics dashboards, SLOs, and feature-flagged rollouts.',
+    place: 'Bangalore, India — Hybrid',
   },
   {
     when: 'Jan 2024 — Feb 2025',
     role: 'Software Engineer',
     co: 'Terawe Corporation',
-    desc: 'Engineered a modular multi-modal pre-processor feeding VectorDBs for large-scale RAG, and shipped conversational-agent platforms for ITER & NYPD with high-accuracy citation integrity, plus neural-analysis tooling on distributed compute.',
-    place: 'Remote — India',
+    desc: 'Engineered a modular multi-modal pre-processor (ffmpeg transcoding, frame extraction, OCR) vectorizing tens of thousands of documents into VectorDBs for large-scale RAG, and shipped conversational-agent platforms for ITER & NYPD with high-accuracy citation integrity.',
+    place: 'Bangalore, India — Hybrid',
   },
   {
     when: 'Nov 2021 — Nov 2023',
@@ -82,11 +83,11 @@ export const EXPERIENCE: ExperienceItem[] = [
 
 /** Stack (work page) — listed without skill-level badges */
 export const SKILLS: SkillGroup[] = [
-  { cat: 'Systems & Backend', items: ['Python (FastAPI, Django)', 'TypeScript', 'Node.js', 'Go', 'Async systems', 'Distributed workflows'] },
-  { cat: 'Frontend', items: ['React', 'Next.js', 'Zustand', 'Tailwind CSS', 'TypeScript'] },
+  { cat: 'Systems & Backend', items: ['Python (FastAPI, Django)', 'TypeScript', 'Node.js', 'Go', 'Kafka / RabbitMQ / Celery', 'ffmpeg & media pipelines', 'Distributed workflows'] },
+  { cat: 'Frontend', items: ['React', 'Next.js', 'Zustand', 'Tailwind CSS', 'Chrome Extensions', 'TypeScript'] },
   { cat: 'AI Orchestration', items: ['LLM APIs (OpenAI, Claude, Gemini)', 'LangGraph / LangChain', 'RAG pipelines', 'MCP', 'Triton Inference Server', 'Prompt engineering'] },
-  { cat: 'Data Layers', items: ['PostgreSQL', 'Elasticsearch / OpenSearch', 'Vector DBs (Pinecone, Qdrant, Weaviate, Chroma)', 'Neo4j', 'Redis'] },
-  { cat: 'Infrastructure', items: ['AWS (Lambda, S3, EC2)', 'Kubernetes', 'Docker', 'CI/CD', 'Compute orchestration'] },
+  { cat: 'Data Layers', items: ['PostgreSQL', 'Supabase', 'ClickHouse', 'Elasticsearch / OpenSearch', 'Vector DBs (Pinecone, Qdrant, Weaviate, Chroma)', 'Neo4j', 'Redis'] },
+  { cat: 'Infrastructure', items: ['AWS (Lambda, S3, EC2)', 'GCP (Cloud Run, Functions, Vertex)', 'Kubernetes', 'Docker', 'CI/CD', 'Feature flags & A/B'] },
   { cat: 'Mobile / Desktop', items: ['React Native', 'Electron', 'Swift (macOS, iOS)', 'Core ML'] },
 ];
 
