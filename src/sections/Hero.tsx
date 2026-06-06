@@ -1,7 +1,9 @@
 import { useHero } from '../hooks/useHero';
 import { useReducedMotion } from '../hooks/useMediaQuery';
+import { useScramble } from '../hooks/useScramble';
 import { useTweaks } from '../components/tweaks/TweaksContext';
 import { HERO } from '../data/content';
+import type { HeadlineLine } from '../types';
 
 const splitChars = (text: string) =>
   Array.from(text).map((c, i) => (
@@ -9,6 +11,17 @@ const splitChars = (text: string) =>
       {c === ' ' ? ' ' : c}
     </span>
   ));
+
+/** A headline line that loops through phrases with the scramble effect.
+ *  Screen readers get the canonical first phrase via aria-label. */
+function RotatingLine({ line, reduced }: { line: HeadlineLine; reduced: boolean }) {
+  const display = useScramble([line.text, ...(line.rotate ?? [])], reduced);
+  return (
+    <span className={`ln line-mask${line.outline ? ' outline' : ''}`} aria-label={line.text}>
+      <span aria-hidden="true">{splitChars(display)}</span>
+    </span>
+  );
+}
 
 export function Hero() {
   const { tweaks } = useTweaks();
@@ -30,11 +43,15 @@ export function Hero() {
       </div>
       <div className="wrap">
         <h1>
-          {HERO.headline.map((l, i) => (
-            <span className={`ln line-mask${l.outline ? ' outline' : ''}`} key={i}>
-              <span>{splitChars(l.text)}</span>
-            </span>
-          ))}
+          {HERO.headline.map((l, i) =>
+            l.rotate?.length ? (
+              <RotatingLine line={l} reduced={reduced} key={i} />
+            ) : (
+              <span className={`ln line-mask${l.outline ? ' outline' : ''}`} key={i}>
+                <span>{splitChars(l.text)}</span>
+              </span>
+            ),
+          )}
         </h1>
         <div className="hero-sub">
           <p>{HERO.sub}</p>

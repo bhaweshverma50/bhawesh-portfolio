@@ -12,8 +12,8 @@ export const HERO = {
   status: 'Senior SWE @ Sanas AI · Bangalore, IN',
   headline: [
     { text: 'Bhawesh' },
-    { text: 'builds AI', outline: true },
-    { text: 'systems' },
+    { text: 'builds', outline: true },
+    { text: 'AI systems', rotate: ['pipelines', 'native apps', 'voice tech'] },
   ] as HeadlineLine[],
   sub:
     'Senior software engineer specialising in distributed systems, AI orchestration, and RAG — building production-grade backends in Python & TypeScript that process millions of events daily.',

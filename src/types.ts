@@ -113,6 +113,8 @@ export interface MarqueeItem {
 export interface HeadlineLine {
   text: string;
   outline?: boolean;
+  /** extra phrases the line loops through with a scramble effect (text is the first) */
+  rotate?: string[];
 }
 
 /* ---- Tweaks ---- */
