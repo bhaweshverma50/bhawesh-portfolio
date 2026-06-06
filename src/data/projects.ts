@@ -141,6 +141,67 @@ export const PROJECTS: Record<string, Project> = {
     ],
     metrics: [['~30s', 'full-disk map'], ['100%', 'on-device AI'], ['46', 'unit tests']],
   },
+  perch: {
+    slug: 'perch',
+    name: 'Perch',
+    tagline: "A Dynamic-Island for your MacBook's notch.",
+    category: 'Native macOS',
+    year: '2026',
+    role: 'Solo — design, engineering',
+    stack: ['Swift', 'SwiftUI', 'AppKit', 'CoreAudio', 'AVFoundation', 'XCTest'],
+    cardTags: ['SwiftUI', 'AppKit'],
+    preview: 'Notch companion island',
+    featured: true,
+    repo: 'https://github.com/bhaweshverma50/perch',
+    writeup: '/post/teaching-the-notch-to-talk',
+    thumb: '/projects/perch/hero.gif',
+    thumbAspect: 'landscape',
+    hero: {
+      src: '/projects/perch/media.png',
+      alt: 'Perch expanded into its media island: album artwork, transport controls and a drag-to-seek scrubber fused to the notch',
+    },
+    gallery: [
+      {
+        src: '/projects/perch/hero.gif',
+        alt: 'The notch expanding on hover from the now-playing wings into the full media island',
+        caption: 'Hover → island, leave → notch. While audio plays, album art and an EQ flank the notch on their own — no hover needed.',
+      },
+      {
+        src: '/projects/perch/media.png',
+        alt: 'Expanded media module with full artwork, transport and scrubber',
+        caption: 'Media — now-playing for any app (live MediaRemote stream), full artwork, and a drag-to-seek scrubber wired to the player.',
+      },
+      {
+        src: '/projects/perch/wings.png',
+        alt: 'Collapsed now-playing wings fused with the hardware notch',
+        caption: 'Compact wings — art on the left shoulder, EQ on the right, the title marquees below. Pure public-API live activity.',
+      },
+      {
+        src: '/projects/perch/bar.png',
+        alt: 'The Bar module mirroring menu-bar items, including ones hidden behind the notch',
+        caption: 'Bar — mirrors every menu-bar item, including the ones macOS hides behind the notch; click a hidden one to open it for real.',
+      },
+      {
+        src: '/projects/perch/today.png',
+        alt: 'Today module with a focus session row and calendar peek',
+        caption: 'Today — remaining events with countdown pills, plus a focus session whose progress glows under the collapsed notch.',
+      },
+    ],
+    lead: "A Dynamic-Island-style companion that turns the dead space around the MacBook notch into a living surface: now-playing with live artwork, a file shelf, your calendar, clipboard history, and a mirror of the menu-bar items the notch hides — all from one borderless panel fused to the bezel.",
+    body: [
+      'Perch is a single panel that moves through four states with one spring family — idle (invisible), minimal (a background activity peeks out), compact (a glanceable live activity), and expanded (the full interactive island) — with a content-hugging shape that takes only the space each module needs. It hover-expands, swipe-navigates a notch-flanking icon rail, and melts back into the bezel.',
+      "The hard parts were all about the seams. Now-playing is app-agnostic — a YouTube tab reads the same as Spotify — by streaming the system's private MediaRemote feed through an entitled perl bridge, with AppleScript as the automatic fallback. The wings survive the lock screen via two lines of public API plus a watchdog. The panel pre-grows once so module morphs never resize the window (which would fire phantom mouse-exit events), and a flipped hit-test view passes clicks outside the visible island straight through to the menu bar. Pure geometry keeps placement unit-tested across multi-display setups; 60 tests and three rounds of adversarial review pin it down.",
+    ],
+    features: [
+      'Four-state Dynamic-Island shape, one spring family',
+      'App-agnostic now-playing (MediaRemote stream) with live artwork + scrubber',
+      'Bar — reach menu-bar items the notch hides (ScreenCaptureKit + AXPress)',
+      'File shelf with AirDrop, clipboard history, calendar, Shortcuts, webcam',
+      'Now-playing wings on the lock screen (CGShieldingWindowLevel)',
+      'Pre-grown click-through panel; pure, unit-tested notch geometry',
+    ],
+    metrics: [['4', 'island states'], ['any', 'audio app'], ['60', 'unit tests']],
+  },
   'universal-rag': {
     slug: 'universal-rag',
     name: 'Universal RAG Agent',
@@ -289,6 +350,7 @@ export const PROJECTS: Record<string, Project> = {
 
 export const PROJECT_ORDER = [
   'sanas-playground',
+  'perch',
   'validatyr',
   'spacelens',
   'beyond-bmi',
