@@ -1,8 +1,10 @@
-/** Self-drawing accent underline rendered beneath standalone page titles. */
+/** Terminal-style marker beneath standalone page titles: a short accent rule
+ *  and a caret tick. (Replaces the old self-drawing SVG squiggle.) */
 export function TitleUnderline() {
   return (
-    <svg className="title-underline" viewBox="0 0 440 14" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M3 9 Q 130 1 230 7 T 437 6" pathLength={1} />
-    </svg>
+    <div className="title-marker" aria-hidden="true">
+      <span className="bar" />
+      <span className="tick">▮</span>
+    </div>
   );
 }

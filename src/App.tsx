@@ -7,7 +7,6 @@ import { useTweaks } from './components/tweaks/TweaksContext';
 import { useReveal } from './hooks/useReveal';
 import { Overlays } from './components/Overlays';
 import { Cursor } from './components/Cursor';
-import { FxLayer } from './components/FxLayer';
 import { FeaturePreview } from './components/FeaturePreview';
 import { Nav } from './components/Nav';
 import { SectionRail } from './components/SectionRail';
@@ -118,7 +117,6 @@ export function App() {
 
       <Overlays />
       <Cursor />
-      <FxLayer />
       <FeaturePreview />
 
       <div

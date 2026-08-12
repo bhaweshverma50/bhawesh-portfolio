@@ -7,9 +7,11 @@ function Probe() {
   const { tweaks, setTweak, open, toggle } = useTweaks();
   return (
     <div>
-      <span data-testid="hero">{tweaks.heroMode}</span>
+      <span data-testid="hero">{tweaks.heroFx}</span>
+      <span data-testid="motion">{tweaks.motion ? 'on' : 'off'}</span>
       <span data-testid="open">{open ? 'open' : 'closed'}</span>
-      <button onClick={() => setTweak('heroMode', 'magnet')}>set</button>
+      <button onClick={() => setTweak('heroFx', 'off')}>set</button>
+      <button onClick={() => setTweak('motion', false)}>motion-off</button>
       <button onClick={toggle}>toggle</button>
     </div>
   );
@@ -27,8 +29,8 @@ describe('TweaksProvider', () => {
     );
     expect(screen.getByTestId('hero')).toHaveTextContent('dots');
     await user.click(screen.getByText('set'));
-    expect(screen.getByTestId('hero')).toHaveTextContent('magnet');
-    expect(localStorage.getItem('bhawesh-tweaks')).toContain('magnet');
+    expect(screen.getByTestId('hero')).toHaveTextContent('off');
+    expect(localStorage.getItem('bhawesh-tweaks')).toContain('off');
   });
 
   it('toggles the panel open state', async () => {
@@ -44,14 +46,24 @@ describe('TweaksProvider', () => {
     expect(document.body.classList.contains('tweaks-open')).toBe(true);
   });
 
-  it('reflects CSS data attributes on mount', () => {
+  it('does not flag motion-off on mount with default tweaks', () => {
     render(
       <TweaksProvider>
         <Probe />
       </TweaksProvider>,
     );
-    expect(document.body.getAttribute('data-textfx')).toBe('off');
-    expect(document.body.getAttribute('data-svgfx')).toBe('on');
-    expect(document.documentElement.getAttribute('data-hero-mode')).toBe('dots');
+    expect(document.body.classList.contains('motion-off')).toBe(false);
+  });
+
+  it('adds the motion-off body class when motion is disabled', async () => {
+    const user = userEvent.setup();
+    render(
+      <TweaksProvider>
+        <Probe />
+      </TweaksProvider>,
+    );
+    expect(document.body.classList.contains('motion-off')).toBe(false);
+    await user.click(screen.getByText('motion-off'));
+    expect(document.body.classList.contains('motion-off')).toBe(true);
   });
 });

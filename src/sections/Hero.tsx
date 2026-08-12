@@ -1,24 +1,30 @@
+import { useRef } from 'react';
 import { useHero } from '../hooks/useHero';
 import { useReducedMotion } from '../hooks/useMediaQuery';
-import { useScramble } from '../hooks/useScramble';
+import { useRotatingText } from '../hooks/useRotatingText';
 import { useTweaks } from '../components/tweaks/TweaksContext';
 import { HERO } from '../data/content';
 import type { HeadlineLine } from '../types';
 
-const splitChars = (text: string) =>
-  Array.from(text).map((c, i) => (
-    <span className="ch" key={i}>
-      {c === ' ' ? ' ' : c}
-    </span>
-  ));
-
-/** A headline line that loops through phrases with the scramble effect.
- *  Screen readers get the canonical first phrase via aria-label. */
-function RotatingLine({ line, reduced }: { line: HeadlineLine; reduced: boolean }) {
-  const display = useScramble([line.text, ...(line.rotate ?? [])], reduced);
+/** A headline line whose word cycles through phrases with a decode/scramble
+ *  effect. The scramble is ref-driven (writes textContent directly) so it never
+ *  re-renders React or re-creates nodes. A canonical aria-label keeps the line
+ *  legible to screen readers; a blinking block caret trails the live word. */
+function RotatingLine({ line, enabled }: { line: HeadlineLine; enabled: boolean }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const phrases = [line.text, ...(line.rotate ?? [])];
+  useRotatingText(ref, phrases, enabled);
   return (
-    <span className={`ln line-mask${line.outline ? ' outline' : ''}`} aria-label={line.text}>
-      <span aria-hidden="true">{splitChars(display)}</span>
+    <span className={`ln line-mask${line.outline ? ' outline' : ''}`}>
+      <span>
+        {/* canonical text for assistive tech (the animated copy is aria-hidden,
+            so screen readers never hear the scramble gibberish) */}
+        <span className="sr-only">{line.text}</span>
+        <span aria-hidden="true">
+          <span ref={ref}>{line.text}</span>
+          <span className="caret" />
+        </span>
+      </span>
     </span>
   );
 }
@@ -26,7 +32,8 @@ function RotatingLine({ line, reduced }: { line: HeadlineLine; reduced: boolean 
 export function Hero() {
   const { tweaks } = useTweaks();
   const reduced = useReducedMotion();
-  const heroRef = useHero(tweaks.heroMode, reduced);
+  const ambient = reduced || !tweaks.motion;
+  const heroRef = useHero(tweaks.heroFx, ambient);
 
   return (
     <section className="hero" id="hero" data-screen-label="Hero" ref={heroRef}>
@@ -45,10 +52,10 @@ export function Hero() {
         <h1>
           {HERO.headline.map((l, i) =>
             l.rotate?.length ? (
-              <RotatingLine line={l} reduced={reduced} key={i} />
+              <RotatingLine line={l} enabled={!ambient} key={i} />
             ) : (
               <span className={`ln line-mask${l.outline ? ' outline' : ''}`} key={i}>
-                <span>{splitChars(l.text)}</span>
+                <span>{l.text}</span>
               </span>
             ),
           )}

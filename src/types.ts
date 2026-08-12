@@ -117,24 +117,22 @@ export interface HeadlineLine {
   rotate?: string[];
 }
 
-/* ---- Tweaks ---- */
-export type HeroMode = 'dots' | 'weight' | 'tilt' | 'magnet' | 'off';
-export type CursorStyle = 'ring' | 'glow' | 'crosshair' | 'spotlight';
-export type ClickFx = 'ripple' | 'particles' | 'glitch' | 'off';
-export type Holo = 'off' | 'sheen' | 'aurora' | 'mesh';
+/* ---- Tweaks (curated: tasteful, performant, flicker-free) ---- */
+export type HeroFx = 'dots' | 'off';
+export type CursorStyle = 'ring' | 'minimal' | 'off';
 export type TransitionStyle = 'wipe' | 'slide' | 'fade';
 export type TransSpeed = 'fast' | 'normal' | 'slow';
-export type TextFx = 'off' | 'chromatic' | 'holo' | 'glitch' | 'scrollhue';
 
 export interface Tweaks {
-  grain: boolean;
-  heroMode: HeroMode;
+  /** hero ambient background effect */
+  heroFx: HeroFx;
+  /** custom cursor style */
   cursor: CursorStyle;
-  trail: boolean;
-  clickFx: ClickFx;
-  holo: Holo;
+  /** film-grain overlay */
+  grain: boolean;
+  /** master switch for ambient/looping motion (marquee, hero rotation, caret, reveals) */
+  motion: boolean;
+  /** page-transition wipe style */
   transition: TransitionStyle;
   transSpeed: TransSpeed;
-  textFx: TextFx;
-  svgFx: boolean;
 }
