@@ -25,29 +25,29 @@ function renderHtml(name: string, email: string, msg: string, when: string): str
   const MONO = "'Martian Mono','SF Mono','Cascadia Mono','Roboto Mono','Courier New',monospace";
   const row = (label: string, value: string) => `
     <tr>
-      <td style="font-family:${MONO};font-size:11px;letter-spacing:1px;color:#8a93a8;padding:7px 16px 7px 0;vertical-align:top;white-space:nowrap;">${label}</td>
-      <td style="font-family:${MONO};font-size:13px;color:#e9edf5;padding:7px 0;word-break:break-word;">${value}</td>
+      <td style="font-family:${MONO};font-size:11px;letter-spacing:1px;color:#a3adc2;padding:7px 16px 7px 0;vertical-align:top;white-space:nowrap;">${label}</td>
+      <td style="font-family:${MONO};font-size:13px;color:#f2f5fa;padding:7px 0;word-break:break-word;">${value}</td>
     </tr>`;
   return `<!doctype html>
 <html>
 <body style="margin:0;padding:0;background:#0a0b0f;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0b0f;">
     <tr><td align="center" style="padding:32px 16px;">
-      <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#0e1016;border:1px solid #1e2637;">
+      <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#0e1016;border:1px solid #2a3550;">
         <tr>
-          <td style="padding:14px 24px;border-bottom:1px solid #1e2637;">
-            <span style="font-family:${MONO};font-size:11px;letter-spacing:2px;color:#5b7fff;">&#9679;&nbsp; INCOMING &mdash; bhawesh.dev/contact</span>
+          <td style="padding:14px 24px;border-bottom:1px solid #2a3550;">
+            <a href="https://bhawesh.dev" style="font-family:${MONO};font-size:11px;letter-spacing:2px;color:#7d97ff;text-decoration:none;">&#9679;&nbsp; INCOMING &mdash; bhawesh.dev/contact</a>
           </td>
         </tr>
         <tr>
           <td style="padding:28px 24px 8px;">
-            <div style="font-family:${MONO};font-size:22px;font-weight:700;line-height:1.3;color:#e9edf5;">${name ? esc(name) : 'Anonymous visitor'}</div>
+            <div style="font-family:${MONO};font-size:22px;font-weight:700;line-height:1.3;color:#f2f5fa;">${name ? esc(name) : 'Anonymous visitor'}</div>
           </td>
         </tr>
         <tr>
           <td style="padding:4px 24px 20px;">
             <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
-              ${email ? row('reply-to', esc(email)) : row('reply-to', '<span style="color:#8a93a8;">not provided</span>')}
+              ${email ? row('reply-to', `<a href="mailto:${esc(email)}" style="color:#7d97ff;text-decoration:none;">${esc(email)}</a>`) : row('reply-to', '<span style="color:#a3adc2;">not provided</span>')}
               ${row('received', esc(when))}
             </table>
           </td>
@@ -56,8 +56,8 @@ function renderHtml(name: string, email: string, msg: string, when: string): str
           <td style="padding:0 24px 28px;">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="border-left:2px solid #5b7fff;padding:16px 18px;background:#0a0b0f;">
-                  <div style="font-family:${MONO};font-size:14px;line-height:1.7;color:#e9edf5;white-space:pre-wrap;word-break:break-word;">${esc(msg)}</div>
+                <td style="border-left:2px solid #7d97ff;padding:16px 18px;background:#151a26;">
+                  <div style="font-family:${MONO};font-size:14px;line-height:1.7;color:#f2f5fa;white-space:pre-wrap;word-break:break-word;">${esc(msg)}</div>
                 </td>
               </tr>
             </table>
@@ -66,13 +66,13 @@ function renderHtml(name: string, email: string, msg: string, when: string): str
         ${
           email
             ? `<tr><td style="padding:0 24px 28px;">
-            <a href="mailto:${esc(email)}" style="display:inline-block;background:#5b7fff;color:#0a0b0f;font-family:${MONO};font-size:13px;font-weight:700;letter-spacing:.5px;text-decoration:none;padding:12px 22px;">Reply to ${name ? esc(name) : 'sender'} &rarr;</a>
+            <a href="mailto:${esc(email)}" style="display:inline-block;background:#7d97ff;color:#0a0b0f;font-family:${MONO};font-size:13px;font-weight:700;letter-spacing:.5px;text-decoration:none;padding:12px 22px;">Reply to ${name ? esc(name) : 'sender'} &rarr;</a>
           </td></tr>`
             : ''
         }
         <tr>
-          <td style="padding:12px 24px;border-top:1px solid #1e2637;">
-            <span style="font-family:${MONO};font-size:11px;color:#8a93a8;">sent by the contact form at <a href="https://bhawesh.dev" style="color:#5b7fff;text-decoration:none;">bhawesh.dev</a></span>
+          <td style="padding:12px 24px;border-top:1px solid #2a3550;">
+            <span style="font-family:${MONO};font-size:11px;color:#a3adc2;">sent by the contact form at <a href="https://bhawesh.dev" style="color:#7d97ff;text-decoration:none;">bhawesh.dev</a></span>
           </td>
         </tr>
       </table>
