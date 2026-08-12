@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useIsTouch } from '../hooks/useMediaQuery';
 import { useTweaks } from './tweaks/TweaksContext';
 
-const CURSORS = ['ring', 'glow', 'crosshair', 'spotlight'] as const;
+const CURSORS = ['ring', 'minimal', 'off'] as const;
 const HOT = 'a,button,.feat-item,.repo,.post,.skill-cat,.btn,.fact,.proj-card';
 
 /** Custom dot + trailing ring cursor (desktop only). */

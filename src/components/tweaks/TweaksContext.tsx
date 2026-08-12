@@ -2,16 +2,12 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import type { Tweaks } from '../../types';
 
 export const TWEAK_DEFAULTS: Tweaks = {
-  grain: true,
-  heroMode: 'dots',
+  heroFx: 'dots',
   cursor: 'ring',
-  trail: false,
-  clickFx: 'ripple',
-  holo: 'off',
+  grain: true,
+  motion: true,
   transition: 'wipe',
   transSpeed: 'normal',
-  textFx: 'off',
-  svgFx: true,
 };
 
 const STORAGE_KEY = 'bhawesh-tweaks';
@@ -61,15 +57,11 @@ export function TweaksProvider({ children }: { children: ReactNode }) {
 
   const toggle = useCallback(() => setOpen((o) => !o), []);
 
-  // CSS-driven effects live on data-attributes the stylesheet keys off.
+  // The motion master toggle is the one tweak the stylesheet keys off globally
+  // (heroFx is passed to useHero; cursor style lives on body.cur-* set in Cursor).
   useEffect(() => {
-    document.body.setAttribute('data-textfx', tweaks.textFx);
-    document.body.setAttribute('data-svgfx', tweaks.svgFx ? 'on' : 'off');
-    const root = document.documentElement;
-    root.setAttribute('data-hero-mode', tweaks.heroMode);
-    root.setAttribute('data-cursor', tweaks.cursor);
-    root.setAttribute('data-holo', tweaks.holo);
-  }, [tweaks.textFx, tweaks.svgFx, tweaks.heroMode, tweaks.cursor, tweaks.holo]);
+    document.body.classList.toggle('motion-off', !tweaks.motion);
+  }, [tweaks.motion]);
 
   // Shift+T toggles the panel (ignored while typing in a field).
   useEffect(() => {

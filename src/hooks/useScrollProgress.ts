@@ -1,6 +1,6 @@
 import { useEffect, type RefObject } from 'react';
 
-/** Drives the top progress bar width, body.scrolled, and the --scrollhue var.
+/** Drives the top progress-bar width and the body.scrolled class.
  *  Writes directly to the DOM (no re-renders). */
 export function useScrollProgress(barRef: RefObject<HTMLElement>): void {
   useEffect(() => {
@@ -10,7 +10,6 @@ export function useScrollProgress(barRef: RefObject<HTMLElement>): void {
       const sy = window.scrollY || h.scrollTop || 0;
       if (barRef.current) barRef.current.style.width = Math.min(100, (sy / sh) * 100) + '%';
       document.body.classList.toggle('scrolled', sy > 24);
-      h.style.setProperty('--scrollhue', Math.round((sy * 0.35) % 360) + 'deg');
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
