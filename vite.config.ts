@@ -2,11 +2,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vite.dev — base: './' keeps asset paths relative so the build works
-// on any host or sub-path (and even from the filesystem via `vite preview`).
+// https://vite.dev — base '/' (absolute asset paths): the site is served from the
+// domain root and BrowserRouter has nested routes (/project/:slug, /post/:slug).
+// A relative base made a reload or deep link there request
+// /project/assets/…, which the server answers with index.html, so the page
+// rendered blank.
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
   test: {
     globals: true,
     environment: 'jsdom',
